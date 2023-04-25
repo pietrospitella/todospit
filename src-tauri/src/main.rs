@@ -6,6 +6,8 @@ use tauri::Manager;
 
 #[tauri::command]
 async fn close_splashscreen(window: tauri::Window) {
+  // Wait 2 seconds
+  std::thread::sleep(std::time::Duration::from_secs(2));
   // Close splashscreen
   if let Some(splashscreen) = window.get_window("splashscreen") {
     splashscreen.close().unwrap();

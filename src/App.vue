@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container h-screen p-4 bg-white dark:bg-black">
+  <div class="card-container h-full p-4 bg-white dark:bg-slate-800">
     <h1
       class="py-4 text-2xl font-bold leading-7 text-gray-900 dark:text-white sm:truncate sm:text-3xl sm:tracking-tight"
     >

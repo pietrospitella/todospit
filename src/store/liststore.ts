@@ -12,7 +12,6 @@ export const useListStore = defineStore("liststore", {
     },
     actions: {
       updateList(newList: any){
-        debugger
         this.$patch({list: newList})
         console.log(this.list)
       },
