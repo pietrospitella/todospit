@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container h-full p-4 bg-white dark:bg-slate-800">
+  <div class="card-container h-screen p-4 bg-white dark:bg-slate-800">
     <h1
       class="py-4 text-2xl font-bold leading-7 text-gray-900 dark:text-white sm:truncate sm:text-3xl sm:tracking-tight"
     >
@@ -60,7 +60,8 @@
       v-if="list.length > 0"
       class="block font-bold text-center border-round py-4"
     >
-      <div v-for="key in list.sort((a, b) => (a.id > b.id) ? -1 : 1)" :key="key.id">
+      <div v-for="//@ts-ignore 
+        key in list.sort((a, b) => (a.id > b.id) ? -1 : 1)" :key="key.id">
         <list-item
           :id="key.id"
           :checked="key.checked"
@@ -99,13 +100,15 @@ import './styles.css'
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { onMounted, ref } from "vue";
+//@ts-ignore 
 import ListItem from "./components/ListItem.vue";
 import { useListStore } from "./store/liststore";
+import logo from '../src/assets/todospit_logo.png'
+
 const list = ref([]) as any;
 const doneList = ref([]) as any;
 const input = ref('');
 const listStore = useListStore();
-import logo from '../src/assets/todospit_logo.png'
 
 const switchMode = () => {
   var root = document.getElementById("app");
