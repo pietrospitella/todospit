@@ -5,11 +5,14 @@ export default {
     "./splashscreen.html",
     "./src/App.vue",
     "./src/**/*.{js,ts,jsx,tsx,vue}",
+    "./node_modules/flowbite/**/*.js"
   ],
   darkMode: "class",
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 
