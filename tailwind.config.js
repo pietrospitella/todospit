@@ -3,7 +3,7 @@ export default {
   content: [
     "./index.html",
     "./splashscreen.html",
-    "./src/App.vue",
+    "./src/main.ts",
     "./src/**/*.{js,ts,jsx,tsx,vue}",
     "./node_modules/flowbite/**/*.js"
   ],
@@ -12,7 +12,7 @@ export default {
     extend: {},
   },
   plugins: [
-    require('flowbite/plugin')
+    require("flowbite/plugin")
   ],
 }
 

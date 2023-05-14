@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* body:has(> .dark) {
+  background: #111827;
+} */
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(211, 211, 211, 0.066);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(211, 211, 211, 0.107);
+  border-radius: 10px;
+}
+
+body {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
 a {
   color: #3b82f6
 }
@@ -28,4 +58,45 @@ a {
 .list-leave-to {
   opacity: 0;
   transform: translateX(30px);
+}
+
+/* SHOW EDIT BTN ON LIST ITEM HOVER */
+
+.show_edit{
+  display: none;
+  transition: all 2s ease;
+}
+
+.list_item:hover .show_edit{
+  display: block;
+}
+
+/* TITLE BAR */
+
+.titlebar {
+  border-radius: 8px 8px 0 0;
+  padding: 4px;
+  height: 40px;
+  background: #111827;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.titlebar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+.titlebar-button:hover {
+  background: #182236;
 }

@@ -1,15 +1,17 @@
 <template>
-  <div class="max-w-md mb-4 px-2 py-3 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-700 flex justify-between">
+  <div class="list_item max-w-md mb-4 px-2 py-3 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-700 flex justify-between">
       <div class="flex items-center w-full relative transition ease-out duration-300">
         <input
           :id="`checkbox-${id}`"
           type="checkbox"
           :checked="checked"
           @change="handleCheck"
-          class="w-8 h-8 text-green-600 bg-white rounded-full border-none focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-slate-600"
+          class="cursor-pointer w-8 h-8 text-green-600 bg-white rounded-full border-none focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-slate-600"
         />
         <label
-          v-linkify
+          v-linkify:options="{
+            target: '_blank',
+          }"
           :for="`checkbox-${id}`"
           :id="id"
           class="col-span-2 ml-4 w-4/6 whitespace-nowrap text-ellipsis overflow-hidden text-left text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -17,6 +19,12 @@
         >
           {{todo}}
         </label>
+        <Button
+          btnColor="transparent"
+          iconName="hi-pencil"
+          :handleClick="handleEdit"
+          extraClass="show_edit justify-self-end absolute right-12"
+        /> 
         <Button
           btnColor="red"
           iconName="hi-trash"
@@ -31,7 +39,14 @@
 import { ref } from "vue";
 import Button from "@components/Button.vue"
 
-const props = defineProps(['id','todo','checked','handleCheck','handleDelete'])
+const props = defineProps([
+  'id',
+  'todo',
+  'checked',
+  'handleCheck',
+  'handleEdit',
+  'handleDelete'
+])
 
 
 </script>

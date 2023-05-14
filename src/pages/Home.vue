@@ -25,7 +25,7 @@
             />
             <Button
                 btnColor="green"
-                iconName="hi-moon"
+                :iconName="modeIcon"
                 :handleClick="() => settingsStore.switchMode()"
             />
         </div>
@@ -33,10 +33,16 @@
         <TransitionGroup tag="div" name="list" v-if="list.length > 0"
             class="block font-bold text-center border-round py-4">
             <div v-for="//@ts-ignore 
-                key in list.sort((a, b) => (a.id > b.id) ? -1 : 1)" :key="key.id">
-                <list-item :id="key.id" :checked="key.checked" :handleCheck="() => checkTodo(key)"
-                    :handleDelete="() => deleteTodo(key)" :todo="key.todo">
-                </list-item>
+                item in list.sort((a, b) => (a.id > b.id) ? -1 : 1)" :key="item.id">
+                <list-item 
+                    :key="listItemKey"
+                    :id="item.id" 
+                    :todo="item.todo"
+                    :checked="item.checked" 
+                    :handleEdit="() => editTodo(item)"
+                    :handleCheck="() => checkTodo(item)"
+                    :handleDelete="() => deleteTodo(item)" 
+                />
             </div>
         </TransitionGroup>
         <p v-else class="text-left text-black dark:text-white">
@@ -45,9 +51,16 @@
         <h2 class="my-4 text-xl text-black dark:text-white font-bold">Completati</h2>
         <TransitionGroup tag="div" name="list" v-if="doneList.length > 0"
             class="block font-bold text-center border-round py-4">
-            <div v-for="key in doneList.sort()" :key="key.id">
-                <list-item :id="key.id" :checked="key.checked" :handleCheck="() => checkTodo(key)"
-                    :handleDelete="() => deleteTodo(key)" :todo="key.todo"></list-item>
+            <div v-for="item in doneList.sort()" :key="item.id">
+                <list-item 
+                    :key="listItemKey"
+                    :id="item.id" 
+                    :todo="item.todo"
+                    :checked="item.checked" 
+                    :handleEdit="() => editTodo(item)"
+                    :handleCheck="() => checkTodo(item)"
+                    :handleDelete="() => deleteTodo(item)" 
+                />
             </div>
         </TransitionGroup>
         <p v-else class="text-left text-black dark:text-white">
@@ -58,8 +71,7 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import { onMounted, ref } from "vue"
-import { FcSettings } from "oh-vue-icons/icons"
+import { onMounted, computed, ref } from "vue"
 //@ts-ignore 
 import ListItem from "@components/ListItem.vue"
 import Button from "@components/Button.vue"
@@ -75,6 +87,15 @@ const input = ref('')
 const listStore = useListStore()
 const settingsStore = useSettingsStore()
 const Dark = ref()
+const listItemKey = ref(0)
+
+const modeIcon = computed(() => {
+    if (settingsStore.getDark) {
+        return 'hi-sun'
+    } else {
+        return 'hi-moon'
+    }
+})
 
 const addTodo = (todo: any, event?: any) => {
     // create new todo
@@ -87,29 +108,39 @@ const addTodo = (todo: any, event?: any) => {
     if (todo) {
         let oldList = JSON.parse(JSON.stringify(list.value))
         // add the todo to the list
-        let newList = [...oldList, newTodo];
-        list.value = newList;
-        listStore.updateList(newList);
-        console.log(newList);
+        let newList = [...oldList, newTodo]
+        list.value = newList
+        listStore.updateList(newList)
+        console.log(newList)
     }
     // clear input box
-    input.value = "";
-};
+    input.value = ""
+}
+
+const editTodo = (item: any) => {
+    // edit todo
+    const newText = prompt(`Modifica ${item.todo}`,item.todo)
+    if(newText){
+        item.todo = newText
+    }
+    listItemKey.value += 1
+    console.log(listItemKey)
+}
 
 const deleteTodo = (item: any) => {
     // Filter out todo with the id
     if (item.checked === true) {
-        let newDoneList = doneList.value.filter((todo: any) => todo.id !== item.id);
-        doneList.value = newDoneList;
-        listStore.updateDoneList(newDoneList);
-        console.log(newDoneList);
+        let newDoneList = doneList.value.filter((todo: any) => todo.id !== item.id)
+        doneList.value = newDoneList
+        listStore.updateDoneList(newDoneList)
+        console.log(newDoneList)
     } else {
-        let newList = list.value.filter((todo: any) => todo.id !== item.id);
-        list.value = newList;
-        listStore.updateList(newList);
-        console.log(newList);
+        let newList = list.value.filter((todo: any) => todo.id !== item.id)
+        list.value = newList
+        listStore.updateList(newList)
+        console.log(newList)
     }
-};
+}
 
 const checkTodo = (item: any) => {
     //prepare the checked todo
@@ -117,37 +148,37 @@ const checkTodo = (item: any) => {
         id: item.id,
         todo: item.todo,
         checked: true,
-    };
+    }
 
     //prepare the todo to uncheck
     const uncheckedTodo = {
         id: item.id,
         todo: item.todo,
         checked: false,
-    };
+    }
 
     let oldList = JSON.parse(JSON.stringify(list.value))
     let oldDoneList = JSON.parse(JSON.stringify(doneList.value))
 
     if (item.checked === false) {
-        let uncheckedList = oldList.filter((todo: any) => todo.id !== item.id);
-        list.value = uncheckedList;
-        console.log(uncheckedList);
+        let uncheckedList = oldList.filter((todo: any) => todo.id !== item.id)
+        list.value = uncheckedList
+        console.log(uncheckedList)
         // add the todo to the list
-        let checkedList = [...oldDoneList, checkedTodo];
-        doneList.value = checkedList;
-        console.log(checkedList);
-        listStore.updateList(uncheckedList);
-        listStore.updateDoneList(checkedList);
+        let checkedList = [...oldDoneList, checkedTodo]
+        doneList.value = checkedList
+        console.log(checkedList)
+        listStore.updateList(uncheckedList)
+        listStore.updateDoneList(checkedList)
     } else {
-        let uncheckedList = [...oldList, uncheckedTodo];
-        list.value = uncheckedList;
-        listStore.updateList(uncheckedList);
-        console.log(uncheckedList);
+        let uncheckedList = [...oldList, uncheckedTodo]
+        list.value = uncheckedList
+        listStore.updateList(uncheckedList)
+        console.log(uncheckedList)
 
         const checkedList = oldDoneList.filter(
             (todo: any) => todo.id !== item.id
-        );
+        )
 
         console.log(checkedList);
         doneList.value = checkedList;

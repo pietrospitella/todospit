@@ -16,6 +16,17 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
       }
     },
     "bundle": {
@@ -38,6 +49,8 @@
     },
     "windows": [
       {
+        "transparent": true,
+        "decorations": false,
         "fullscreen": false,
         "resizable": true,
         "title": "TodoSpit",
@@ -47,10 +60,10 @@
         "center": true
       },
       {
-        "width": 400,
-        "height": 200,
+        "width": 500,
+        "height": 500,
         "decorations": false,
-        "url": "splashscreen.html",
+        "url": "todospit_logo.png",
         "label": "splashscreen",
         "center": true
       }

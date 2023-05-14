@@ -10,6 +10,11 @@ import { OhVueIcon, addIcons } from "oh-vue-icons";
 import * as HiIcons from "oh-vue-icons/icons/hi";
 import { invoke } from '@tauri-apps/api/tauri'
 import Vue3linkify from "vue-3-linkify";
+import { appWindow } from '@tauri-apps/api/window'
+
+document?.getElementById('titlebar-minimize')?.addEventListener('click', () => appWindow.minimize())
+document?.getElementById('titlebar-maximize')?.addEventListener('click', () => appWindow.toggleMaximize())
+document?.getElementById('titlebar-close')?.addEventListener('click', () => appWindow.close())
 
 const pinia = createPinia()
 const app = createApp(App)
