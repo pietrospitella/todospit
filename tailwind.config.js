@@ -5,14 +5,14 @@ export default {
     "./splashscreen.html",
     "./src/main.ts",
     "./src/**/*.{js,ts,jsx,tsx,vue}",
-    "./node_modules/flowbite/**/*.js"
+    'formkit.theme.ts'
   ],
   darkMode: "class",
   theme: {
     extend: {},
   },
   plugins: [
-    require("flowbite/plugin")
+    require("daisyui")
   ],
 }
 

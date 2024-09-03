@@ -1,22 +1,35 @@
-import { defineStore } from "pinia";
+import { IListItem } from "@/types/list"
+import { ListStore } from "@/types/store"
+import { defineStore } from "pinia"
 
 export const useListStore = defineStore("liststore", {
-  state: () => ({
+  state: (): ListStore => ({
     list: [],
-    doneList: [],
+    doneList: []
   }),
   getters: {
     getList: (state: any) => state.list,
-    getDoneList: (state: any) => state.doneList,
+    getDoneList: (state: any) => state.doneList
   },
   actions: {
-    updateList(newList: any){
+    updateList(newList: any) {
       this.$patch({list: newList})
-      console.log(this.list)
     },
-    updateDoneList(newDoneList: any){
+    updateDoneList(newDoneList: any) {
       this.$patch({doneList: newDoneList})
     },
+    editListItem(item: IListItem, data: IListItem) {
+      this.$patch((state) => {
+        const listToUpdate = item.isDone ? state.doneList : state.list
+        const idx = listToUpdate.findIndex((e) => e.id === item.id)
+        if (idx !== -1) {
+          listToUpdate[idx].title = data.title
+          listToUpdate[idx].isDone = item.isDone
+          listToUpdate[idx].dueDate = item.dueDate
+          listToUpdate[idx].createDate = item.createDate
+        }
+      })
+    }
   },
   persist: true
-});
+})

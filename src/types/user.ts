@@ -1,0 +1,31 @@
+export interface IUser {
+    uid: string;
+    email: string;
+    displayName: string;
+    photoURL: string;
+    phoneNumber: string;
+    isAnonymous: boolean;
+    accessToken: string;
+    refreshToken: string;
+    expiresIn: number;
+    tokenType: string;
+    idToken: string;
+    userMetadata: any;
+    createdAt: number;
+    lastLoginAt: number;
+    lastRefreshAt: number;
+    providerData: any;
+    stsTokenManager: any;
+    apiKey: string;
+    appName: string;
+    authTime: number;
+    isDeleted: boolean;
+    customAuth: boolean;
+    tenantId: string;
+    disabled: boolean;
+    metadata: any;
+    tokensValidAfterTime: number;
+    sessionClaims: any;
+    appData: any;
+    lastRefreshTime: number;
+  }
