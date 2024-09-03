@@ -1,16 +1,88 @@
-# Tauri + Vue 3 + TypeScript
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<br/>
+<div align="center">
+<a href="https://github.com/ShaanCoding/ReadME-Generator">
+<img src="./src/assets/todospit_logo.png" alt="Logo" width="80" height="80">
+</a>
+<h3 align="center">TodoSpit</h3>
+<p align="center">
+A simple homemade todo app
+<br/>
+<br/>
+</p>
+</div>
 
-## Recommended IDE Setup
+## About The Project
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+<!-- ![Product Screenshot](https://picsum.photos/1920/1080) -->
 
-## Type Support For `.vue` Imports in TS
+Here's my todo app born to be my go-to tool for routine tasks. My objective is to create a task management system that is easy to use and effective, allowing for a rapid and enjoyable planning experience.
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+### Built With
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+- [Vue](https://vuejs.org)
+- [Tauri](https://tauri.app/)
+- [Tailwind](https://tailwindcss.com/)
+- [DaisyUI](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+## Getting Started
+
+### Prerequisites
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+- pnpm
+  ```sh
+  npm install -g pnpm
+  ```
+
+- rust
+
+to install Rust, please follow the guidelines available on Tauri documentation:
+ https://tauri.app/v1/guides/getting-started/prerequisites
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/pietrospitella/todospit.git
+   ```
+2. Install PNPM packages
+   ```sh
+   pnpm install
+   ```
+## Usage
+
+To start the project, simply run
+   ```sh
+   pnpm tauri dev
+   ```
+
+See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a full list of proposed features (and known issues).
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+## License
+
+Distributed under the MIT License. See [MIT License](https://opensource.org/licenses/MIT) for more information.
+
+Project Link: [https://github.com/pietrospitella/todospit](https://github.com/pietrospitella/todospit)
+
+## Acknowledgments
+
+- [makeread.me](https://github.com/ShaanCoding/ReadME-Generator)
+- [othneildrew](https://github.com/othneildrew/Best-README-Template)

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body:has(> .dark) {
-  background: #111827;
-} */
-
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
@@ -25,6 +21,10 @@
 *::-webkit-scrollbar-thumb {
   background-color: rgba(211, 211, 211, 0.107);
   border-radius: 10px;
+}
+
+html, body {
+  background: transparent;
 }
 
 body {
@@ -74,7 +74,7 @@ a {
 /* TITLE BAR */
 
 .titlebar {
-  border-radius: 8px 8px 0 0;
+  /* border-radius: 8px 8px 0 0; */
   padding: 4px;
   height: 40px;
   background: #111827;
@@ -99,4 +99,8 @@ a {
 }
 .titlebar-button:hover {
   background: #182236;
+}
+
+#titlebar-actions {
+  display: none;
 }
