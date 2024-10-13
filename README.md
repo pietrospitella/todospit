@@ -1,9 +1,8 @@
 
 <br/>
 <div align="center">
-<a href="https://github.com/ShaanCoding/ReadME-Generator">
 <img src="./src/assets/todospit_logo.png" alt="Logo" width="80" height="80">
-</a>
+
 <h3 align="center">TodoSpit</h3>
 <p align="center">
 A simple homemade todo app
@@ -14,8 +13,6 @@ A simple homemade todo app
 
 ## About The Project
 
-<!-- ![Product Screenshot](https://picsum.photos/1920/1080) -->
-
 Here's my todo app born to be my go-to tool for routine tasks. My objective is to create a task management system that is easy to use and effective, allowing for a rapid and enjoyable planning experience.
 
 ### Built With
@@ -23,7 +20,7 @@ Here's my todo app born to be my go-to tool for routine tasks. My objective is t
 - [Vue](https://vuejs.org)
 - [Tauri](https://tauri.app/)
 - [Tailwind](https://tailwindcss.com/)
-- [DaisyUI](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
 - [Vite](https://vitejs.dev/)
 
 ## Getting Started
@@ -62,7 +59,7 @@ To start the project, simply run
    pnpm tauri dev
    ```
 
-See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/pietrospitella/todospit/issues) for a full list of proposed features (and known issues).
 
 ## Contributing
 
